@@ -95,9 +95,11 @@ a:hover {
   position: relative;
   right: 2px;
   font-family: "Inter", sans-serif;
+  font-size: 14px;
 }
 .source-code {
   position: relative;
   right: -457px;
   font-family: "Inter", sans-serif;
+  font-size: 14px;
 }
