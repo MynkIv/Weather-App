@@ -1,0 +1,93 @@
+body {
+  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/024/841/original/BlurBg.png?1642111422");
+  margin: 0 auto;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  padding: 50px;
+}
+h1 {
+  font-family: "Inter", sans-serif;
+  padding-top: 20px;
+}
+p {
+  font-family: "Inter", sans-serif;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.app {
+  background: rgba(299, 299, 299, 0.4);
+  border-radius: 20px;
+  max-width: 400px;
+  margin-top: 190px;
+  padding-bottom: 30px;
+}
+
+.search-button {
+  background-color: transparent;
+  border: #7c7c7c2b 0.5px solid;
+  border-radius: 20px;
+  padding: 2px;
+  margin-top: 20px;
+  font-family: "Inter", sans-serif;
+}
+.search-button:hover {
+  background-color: rgba(299, 299, 299, 0.3);
+  cursor: pointer;
+}
+.fas {
+  color: white;
+}
+.icon-1 {
+  position: relative;
+  right: -7px;
+}
+.row {
+  font-family: "Inter", sans-serif;
+  color: black;
+}
+.input-search {
+  background: #7c7c7c3b;
+  border: none;
+  border-radius: 20px;
+  font-family: "Inter", sans-serif;
+  color: black;
+}
+.svg-1 {
+  position: relative;
+  right: 24px;
+}
+.svg-2 {
+  position: relative;
+  right: 23px;
+}
+.svg-3 {
+  position: relative;
+  right: 19px;
+}
+.svg-4 {
+  position: relative;
+  right: 20px;
+}
+.svg-5 {
+  position: relative;
+  right: 21px;
+}
+.svg-6 {
+  position: relative;
+  right: 19px;
+}
+.degrees {
+  font-size: 12px;
+  position: relative;
+  top: -16px;
+}
+#day-time {
+  font-family: "Inter", sans-serif;
+}
