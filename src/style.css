@@ -91,3 +91,13 @@ a:hover {
 #day-time {
   font-family: "Inter", sans-serif;
 }
+.source-code-link {
+  position: relative;
+  right: 2px;
+  font-family: "Inter", sans-serif;
+}
+.source-code {
+  position: relative;
+  right: -457px;
+  font-family: "Inter", sans-serif;
+}
