@@ -1,10 +1,9 @@
 body {
-  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/024/841/original/BlurBg.png?1642111422");
+  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/026/137/original/abderrahmane-meftah-K31pxnUmaRE-unsplash.jpg?1643658969");
   margin: 0 auto;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-
   padding: 50px;
 }
 h1 {
@@ -37,13 +36,17 @@ a:hover {
   margin-top: 20px;
   font-family: "Inter", sans-serif;
 }
+.search-icon {
+  color: rgba(255, 255, 255, 0.6);
+}
+
 .search-button:hover {
   background-color: rgba(299, 299, 299, 0.3);
   cursor: pointer;
 }
-.fas {
+/* .fas {
   color: white;
-}
+} */
 .icon-1 {
   position: relative;
   right: -7px;
@@ -92,14 +95,194 @@ a:hover {
   font-family: "Inter", sans-serif;
 }
 .source-code-link {
-  position: relative;
-  right: 2px;
   font-family: "Inter", sans-serif;
   font-size: 14px;
+  color: pink;
 }
 .source-code {
-  position: relative;
-  right: -457px;
   font-family: "Inter", sans-serif;
   font-size: 14px;
+  padding-top: 5px;
+  display: block;
+}
+.theme-button {
+  position: relative;
+  right: -22px;
+  font-size: 12px;
+  background-color: pink;
+  border: none;
+  color: white;
+  border-radius: 15px;
+  padding: 5px 7px;
+}
+.theme-button:hover {
+  background-color: rgba(299, 299, 299, 0.3);
+  color: black;
+}
+/* Dark Mode */
+
+body.dark {
+  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/026/139/original/madhuvan-yadav-GRIRnUHkzJY-unsplash.jpg?1643663345");
+  margin: 0 auto;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 50px;
+}
+body.dark h1 {
+  font-family: "Inter", sans-serif;
+  padding-top: 20px;
+}
+body.dark p {
+  font-family: "Inter", sans-serif;
+}
+body.dark a {
+  text-decoration: none;
+}
+body.dark a:hover {
+  text-decoration: underline;
+}
+
+body.dark .app {
+  background: rgba(2, 7, 9, 0.6);
+  border-radius: 20px;
+  max-width: 400px;
+  margin-top: 190px;
+  padding-bottom: 30px;
+  color: white;
+}
+
+body.dark .search-button {
+  background-color: transparent;
+  border: #7c7c7c2b 0.5px solid;
+  border-radius: 20px;
+  padding: 2px;
+  margin-top: 20px;
+  font-family: "Inter", sans-serif;
+}
+body.dark .search-icon {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+body.dark .search-button:hover {
+  background-color: rgba(299, 299, 299, 0.3);
+  cursor: pointer;
+}
+/* .fas {
+  color: white;
+} */
+body.dark .icon-1 {
+  position: relative;
+  right: -7px;
+}
+body.dark .row {
+  font-family: "Inter", sans-serif;
+  color: black;
+}
+body.dark .input-search {
+  background: #7c7c7c3b;
+  border: none;
+  border-radius: 20px;
+  font-family: "Inter", sans-serif;
+  color: black;
+}
+.svg-1 {
+  position: relative;
+  right: 24px;
+}
+.svg-2 {
+  position: relative;
+  right: 23px;
+}
+.svg-3 {
+  position: relative;
+  right: 19px;
+}
+.svg-4 {
+  position: relative;
+  right: 20px;
+}
+.svg-5 {
+  position: relative;
+  right: 21px;
+}
+.svg-6 {
+  position: relative;
+  right: 19px;
+}
+.degrees {
+  font-size: 12px;
+  position: relative;
+  top: -16px;
+}
+#day-time {
+  font-family: "Inter", sans-serif;
+}
+body.dark .source-code-link {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: pink;
+}
+body.dark .source-code {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  padding-top: 5px;
+  display: block;
+  color: white;
+}
+body.dark .theme-button {
+  position: relative;
+  right: -20px;
+  font-size: 12px;
+  background-color: pink;
+  border: none;
+  color: white;
+  border-radius: 15px;
+  padding: 5px 7px;
+  transform: scale(1);
+}
+
+body.dark .theme-button:focus,
+body.dark .theme-button:hover {
+  background-color: rgba(299, 299, 299, 0.3);
+  color: black;
+  transform: scale(1.1);
+  transition-delay: 1ms;
+}
+body.dark .weekly-weather {
+  color: white;
+}
+.theme-icons {
+  --rotation: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: pink;
+  transform: rotate(var(--rotation));
+}
+
+body.dark .theme-icons {
+  text-align: center;
+  color: pink;
+}
+.sun,
+.moon {
+  --transition-delay: 1s;
+  position: absolute;
+  transition: opacity var(--transition-delay);
+}
+.moon {
+  bottom: -767px;
+  opacity: 0;
+}
+.sun {
+  top: 5%;
+  opacity: 1;
+}
+
+body.dark .moon {
+  opacity: 1;
+}
+body.dark .sun {
+  opacity: 0;
 }

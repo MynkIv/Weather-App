@@ -38,6 +38,11 @@ function searchCity(event) {
 let searchButton = document.querySelector(".search-bar");
 searchButton.addEventListener("submit", searchCity);
 
+//Theme-Button
+document.querySelector(".theme-button").addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+});
+
 //Temperature
 //function celciusTemp() {
 // let mainDegree = document.querySelector("#mainDegree");
