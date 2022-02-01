@@ -286,3 +286,7 @@ body.dark .moon {
 body.dark .sun {
   opacity: 0;
 }
+
+.wind-speed {
+  font-family: "Inter", sans-serif;
+}
