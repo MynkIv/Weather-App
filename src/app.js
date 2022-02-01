@@ -28,6 +28,7 @@ function displayTemperature(response) {
   let lowTemp = document.querySelector("#low-temp");
 
   fahrenheitTemp = response.data.main.temp;
+
   maxTemp.innerHTML = `H:${Math.round(response.data.main.temp_max)}° `;
   lowTemp.innerHTML = `L:${Math.round(response.data.main.temp_min)}°`;
   mainDegree.innerHTML = Math.round(fahrenheitTemp);
@@ -52,8 +53,29 @@ function handleSubmit(event) {
   search(city);
 }
 
+function showCelciusmTemp(event) {
+  event.preventDefault();
+  let mainDegree = document.querySelector("#mainDegree");
+  let cTemp = Math.round(((fahrenheitTemp - 32) * 5) / 9);
+  mainDegree.innerHTML = cTemp;
+}
+
+function showFahrenheitTemp(event) {
+  event.preventDefault();
+  let mainDegree = document.querySelector("#mainDegree");
+  mainDegree.innerHTML = Math.round(fahrenheitTemp);
+}
+
+let fahrenheitTemp = null;
+
 let searchBar = document.querySelector(".search-bar");
 searchBar.addEventListener("submit", handleSubmit);
+
+let celciusTemp = document.querySelector("#cTemp");
+celciusTemp.addEventListener("click", showCelciusmTemp);
+
+let fahrenheitLink = document.querySelector("#fTemp");
+fahrenheitLink.addEventListener("click", showFahrenheitTemp);
 
 search("New York");
 
