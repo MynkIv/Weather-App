@@ -23,7 +23,8 @@ function displayTemperature(response) {
   let mainDegree = document.querySelector("#mainDegree");
   let h1 = document.querySelector("#h1");
   let description = document.querySelector("#weather-description");
-  let weatherIconElement1 = document.querySelector(".svg-1");
+  //Temporarily Disconnecting the Icon
+  // let weatherIconElement1 = document.querySelector(".svg-1");
   let maxTemp = document.querySelector("#max-temp");
   let lowTemp = document.querySelector("#low-temp");
   let windElement = document.querySelector("#wind");
@@ -36,10 +37,11 @@ function displayTemperature(response) {
   mainDegree.innerHTML = Math.round(fahrenheitTemp);
   h1.innerHTML = response.data.name;
   description.innerHTML = response.data.weather[0].description;
-  weatherIconElement1.setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  );
+  //Temporarily Disconnecting the Icon
+  //weatherIconElement1.setAttribute(
+  // "src",
+  //  `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  //);
 }
 
 function search(city) {
