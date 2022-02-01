@@ -77,7 +77,7 @@ celciusTemp.addEventListener("click", showCelciusmTemp);
 let fahrenheitLink = document.querySelector("#fTemp");
 fahrenheitLink.addEventListener("click", showFahrenheitTemp);
 
-search("New York");
+search("Brooklyn");
 
 //Theme - Button;
 document.querySelector(".theme-button").addEventListener("click", () => {
