@@ -32,8 +32,8 @@ function displayTemperature(response) {
   fahrenheitTemp = response.data.main.temp;
 
   windElement.innerHTML = Math.round(response.data.wind.speed);
-  maxTemp.innerHTML = `H:${Math.round(response.data.main.temp_max)}° `;
-  lowTemp.innerHTML = `L:${Math.round(response.data.main.temp_min)}°`;
+  maxTemp.innerHTML = `H:${Math.round(response.data.main.temp_max)}°F  `;
+  lowTemp.innerHTML = `| L:${Math.round(response.data.main.temp_min)}°F`;
   mainDegree.innerHTML = Math.round(fahrenheitTemp);
   h1.innerHTML = response.data.name;
   description.innerHTML = response.data.weather[0].description;
