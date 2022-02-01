@@ -24,9 +24,12 @@ function displayTemperature(response) {
   let h1 = document.querySelector("#h1");
   let description = document.querySelector("#weather-description");
   let weatherIconElement1 = document.querySelector(".svg-1");
+  let maxTemp = document.querySelector("#max-temp");
+  let lowTemp = document.querySelector("#low-temp");
 
   fahrenheitTemp = response.data.main.temp;
-
+  maxTemp.innerHTML = `H:${Math.round(response.data.main.temp_max)}° `;
+  lowTemp.innerHTML = `L:${Math.round(response.data.main.temp_min)}°`;
   mainDegree.innerHTML = Math.round(fahrenheitTemp);
   h1.innerHTML = response.data.name;
   description.innerHTML = response.data.weather[0].description;
