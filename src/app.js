@@ -30,9 +30,11 @@ function displayForecast(response) {
 <div class="col-2 day">
             ${forecastDay.dt} <br />
             <div class="svg">
-            <img class="img" src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" width="70px" />
+            <img class="img" src="http://openweathermap.org/img/wn/${
+              forecastDay.weather[0].icon
+            }@2x.png" width="70px" />
             </div>
-            ${forecastDay.temp.day}°F
+            ${Math.round(forecastDay.temp.day)}°F
           </div>
   `;
   });
