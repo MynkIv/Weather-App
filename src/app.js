@@ -19,20 +19,20 @@ if (currentDate.getMinutes() < 10) {
 }
 
 function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector(".weekly-weather");
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   let forecastHTML = `<div class="row mx-auto">`;
-  days.forEach(function (day) {
+  forecast.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       `
 <div class="col-2 day">
-            ${day} <br />
+            ${forecastDay.dt} <br />
             <div class="svg">
             <img class="img" src="images/day.svg" width="70px" />
             </div>
-            41°F
+            ${forecastDay.temp.day}°F
           </div>
   `;
   });
