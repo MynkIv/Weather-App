@@ -59,9 +59,6 @@ function displayTemperature(response) {
   let lowTemp = document.querySelector("#low-temp");
   let windElement = document.querySelector("#wind");
 
-  //Temporarily Comment this out
-  // displayForecast();
-
   fahrenheitTemp = response.data.main.temp;
 
   windElement.innerHTML = Math.round(response.data.wind.speed);
