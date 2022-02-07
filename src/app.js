@@ -27,7 +27,6 @@ function displayForecast() {
     forecastHTML =
       forecastHTML +
       `
-
 <div class="col-2 day">
             ${day} <br />
             <div class="svg">
