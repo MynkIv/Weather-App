@@ -18,6 +18,13 @@ if (currentDate.getMinutes() < 10) {
   time.innerHTML = ` ${currentDate.getHours()}:${currentDate.getMinutes()}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector(".weekly-weather");
@@ -28,7 +35,7 @@ function displayForecast(response) {
       forecastHTML +
       `
 <div class="col-2 day">
-            ${forecastDay.dt} <br />
+            ${formatDay(forecastDay.dt)} <br />
             <div class="svg">
             <img class="img" src="http://openweathermap.org/img/wn/${
               forecastDay.weather[0].icon
