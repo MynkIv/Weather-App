@@ -30,10 +30,11 @@ function displayForecast(response) {
   let forecastElement = document.querySelector(".weekly-weather");
 
   let forecastHTML = `<div class="row mx-auto">`;
-  forecast.forEach(function (forecastDay) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
 <div class="col-2 day">
             ${formatDay(forecastDay.dt)} <br />
             <div class="svg">
@@ -44,6 +45,7 @@ function displayForecast(response) {
             ${Math.round(forecastDay.temp.day)}°F
           </div>
   `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
