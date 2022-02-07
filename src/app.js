@@ -18,7 +18,7 @@ if (currentDate.getMinutes() < 10) {
   time.innerHTML = ` ${currentDate.getHours()}:${currentDate.getMinutes()}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
   let forecastElement = document.querySelector(".weekly-weather");
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
@@ -40,6 +40,11 @@ function displayForecast() {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
   console.log(forecastHTML);
+}
+
+function getForecast(coordinates) {
+  let apiURL = ` https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=f5b69fb0f2c8bd35132203c6577c67c4&units=imperial`;
+  axios.get(apiURL).then(displayForecast);
 }
 
 //Search
@@ -70,6 +75,7 @@ function displayTemperature(response) {
   // "src",
   //  `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   //);
+  getForecast(response.data.coord);
 }
 
 function search(city) {
@@ -110,7 +116,6 @@ let fahrenheitLink = document.querySelector("#fTemp");
 fahrenheitLink.addEventListener("click", showFahrenheitTemp);
 
 search("Brooklyn");
-displayForecast();
 
 //Theme - Button;
 document.querySelector(".theme-button").addEventListener("click", () => {
