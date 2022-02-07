@@ -33,7 +33,7 @@ function displayForecast() {
             <div class="svg">
             <img class="img" src="images/day.svg" width="70px" />
             </div>
-            41°
+            41°F
           </div>
   `;
   });
