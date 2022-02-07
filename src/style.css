@@ -54,6 +54,10 @@ a:hover {
 .row {
   font-family: "Inter", sans-serif;
   color: black;
+  text-align: center;
+}
+div .day {
+  padding: 0px;
 }
 .input-search {
   background: #7c7c7c3b;
@@ -62,30 +66,16 @@ a:hover {
   font-family: "Inter", sans-serif;
   color: black;
 }
-.svg-1 {
-  position: relative;
-  right: 24px;
+.svg {
+  display: flex;
+  justify-content: center;
 }
-.svg-2 {
-  position: relative;
-  right: 23px;
+.img {
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
 }
-.svg-3 {
-  position: relative;
-  right: 19px;
-}
-.svg-4 {
-  position: relative;
-  right: 20px;
-}
-.svg-5 {
-  position: relative;
-  right: 21px;
-}
-.svg-6 {
-  position: relative;
-  right: 19px;
-}
+
 .degrees {
   font-size: 12px;
   position: relative;
@@ -120,6 +110,9 @@ a:hover {
   color: black;
 }
 /* Dark Mode */
+body.dark .day {
+  color: white;
+}
 
 body.dark {
   background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/026/139/original/madhuvan-yadav-GRIRnUHkzJY-unsplash.jpg?1643663345");

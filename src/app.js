@@ -17,6 +17,32 @@ if (currentDate.getMinutes() < 10) {
 } else {
   time.innerHTML = ` ${currentDate.getHours()}:${currentDate.getMinutes()}`;
 }
+
+function displayForecast() {
+  let forecastElement = document.querySelector(".weekly-weather");
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+  let forecastHTML = `<div class="row mx-auto">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+
+<div class="col-2 day">
+            ${day} <br />
+            <div class="svg">
+            <img class="img" src="images/day.svg" width="70px" />
+            </div>
+            41°
+          </div>
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+
 //Search
 function displayTemperature(response) {
   console.log(response.data);
@@ -28,6 +54,9 @@ function displayTemperature(response) {
   let maxTemp = document.querySelector("#max-temp");
   let lowTemp = document.querySelector("#low-temp");
   let windElement = document.querySelector("#wind");
+
+  //Temporarily Comment this out
+  // displayForecast();
 
   fahrenheitTemp = response.data.main.temp;
 
@@ -82,6 +111,7 @@ let fahrenheitLink = document.querySelector("#fTemp");
 fahrenheitLink.addEventListener("click", showFahrenheitTemp);
 
 search("Brooklyn");
+displayForecast();
 
 //Theme - Button;
 document.querySelector(".theme-button").addEventListener("click", () => {
