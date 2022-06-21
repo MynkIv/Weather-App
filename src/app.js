@@ -53,8 +53,15 @@ function displayForecast(response) {
 
 //Hourly Forecast
 function formatHour(timestamp) {
+  let amPm = "";
   let hour = new Date(timestamp * 1000);
-  let forecastHour = ("" + hour.getHours()).slice(-2);
+  let curHour = hour.getHours();
+  if (curHour < 12) {
+    amPm = "AM";
+  } else {
+    amPm = "PM";
+  }
+  let forecastHour = `${curHour}:00 ${amPm}`;
   return forecastHour;
 }
 function displayForecastHour(response) {
@@ -73,7 +80,7 @@ function displayForecastHour(response) {
               forecastHour.weather[0].icon
             }@2x.png" width="70px" />
             </div>
-            ${Math.round(forecastHour.temp)}°F
+           <strong> ${Math.round(forecastHour.temp)} °F </strong>
           </div>
   `;
     }
