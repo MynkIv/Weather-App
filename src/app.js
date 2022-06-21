@@ -14,11 +14,11 @@ let time = document.querySelector("#time");
 day.innerHTML = days[currentDate.getDay()];
 if (currentDate.getMinutes() < 10) {
   time.innerHTML = ` ${currentDate.getHours()}:0${currentDate.getMinutes()}`;
+} else {
+  time.innerHTML = ` ${currentDate.getHours()}:${currentDate.getMinutes()}`;
 }
 if (currentDate.getHours() === 0) {
   time.innerHTML = ` 12:${currentDate.getMinutes()}`;
-} else {
-  time.innerHTML = ` ${currentDate.getHours()}:${currentDate.getMinutes()}`;
 }
 
 //Weekly Forecast
