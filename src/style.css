@@ -1,9 +1,5 @@
 body {
-  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/026/137/original/abderrahmane-meftah-K31pxnUmaRE-unsplash.jpg?1643658969");
   margin: 0 auto;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
   padding: 50px;
 }
 h1 {
