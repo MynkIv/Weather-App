@@ -162,6 +162,10 @@ body.dark .weekly-weather {
   color: white;
   text-align: center;
 }
+body.dark .hourly-weather {
+  color: white;
+  text-align: center;
+}
 
 body.dark .app-bottom {
   background-color: var(--theme-color1);

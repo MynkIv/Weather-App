@@ -18,14 +18,13 @@ if (currentDate.getMinutes() < 10) {
   time.innerHTML = ` ${currentDate.getHours()}:${currentDate.getMinutes()}`;
 }
 
+//Weekly Forecast
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return days[day];
 }
-
-//Weekly Forecast
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector(".weekly-weather");
@@ -52,45 +51,43 @@ function displayForecast(response) {
   console.log(forecastHTML);
 }
 
+//Hourly Forecast
 function formatHour(timestamp) {
-  let hourTime = new Date(timestamp * 1000);
-  let forecastHour = ("0" + hourTime.getHours()).slice(-2);
+  let hour = new Date(timestamp * 1000);
+  let forecastHour = ("" + hour.getHours()).slice(-2);
   return forecastHour;
 }
-//Hourly Forecast
 function displayForecastHour(response) {
-  let forecastH = response.data.hourly.slice(1, 6);
-  let forecastSecondElement = document.querySelector("#forecastHour");
-
-  let forecastHHTML = `<div class="row">`;
-  forecastH.forEach(function (forecastHour) {
-    forecastHHTML =
-      forecastHHTML +
-      `
-        <div class="col-2">
-          <div class="forecast-hour">${formatHour(forecastHour.dt)}h</div>
-          <img 
-              src="images/gif/${forecastHour.weather[0].icon}.svg"
-              alt="weather-icon" 
-              class="icon"   
-              id="icon"
-          />
-          <span class="forecast-temperatures" id="forecastTemp">${Math.round(
-            forecastHour.temp
-          )}</span><span class="forecast-temperature">º</span>
-        </div>`;
-    hourlyForecastTemp = forecastHour.temp;
+  let hourForecast = response.data.hourly.slice(1, 5);
+  let forecastHourElement = document.querySelector(".hourly-weather");
+  let forecastHourHTML = `<div class="row ">`;
+  hourForecast.forEach(function (forecastHour, index) {
+    if (index < 6) {
+      forecastHourHTML =
+        forecastHourHTML +
+        `
+<div class="col ">
+            ${formatHour(forecastHour.dt)} <br />
+            <div class="svg">
+            <img class="img" src="http://openweathermap.org/img/wn/${
+              forecastHour.weather[0].icon
+            }@2x.png" width="70px" />
+            </div>
+            ${Math.round(forecastHour.temp)}°F
+          </div>
+  `;
+    }
   });
-
-  forecastHHTML = forecastHHTML + `</div>`;
-  forecastSecondElement.innerHTML = forecastHHTML;
+  forecastHourHTML = forecastHourHTML + `</div>`;
+  forecastHourElement.innerHTML = forecastHourHTML;
+  console.log(forecastHourHTML);
 }
 
 //Api Call for Forecasts
 function getForecast(coordinates) {
   let apiURL = ` https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=f5b69fb0f2c8bd35132203c6577c67c4&units=imperial`;
   axios.get(apiURL).then(displayForecast);
-  axios.get(apiURl).then(displayForecastHour);
+  axios.get(apiURL).then(displayForecastHour);
 }
 
 //Search
@@ -99,8 +96,7 @@ function displayTemperature(response) {
   let mainDegree = document.querySelector("#mainDegree");
   let h1 = document.querySelector("#h1");
   let description = document.querySelector("#weather-description");
-  //Temporarily Disconnecting the Icon
-  // let weatherIconElement1 = document.querySelector(".svg-1");
+
   let maxTemp = document.querySelector("#max-temp");
   let lowTemp = document.querySelector("#low-temp");
   let windElement = document.querySelector("#wind");
@@ -113,11 +109,7 @@ function displayTemperature(response) {
   mainDegree.innerHTML = Math.round(fahrenheitTemp);
   h1.innerHTML = response.data.name;
   description.innerHTML = response.data.weather[0].description;
-  //Temporarily Disconnecting the Icon
-  //weatherIconElement1.setAttribute(
-  // "src",
-  //  `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  //);
+
   getForecast(response.data.coord);
 }
 
