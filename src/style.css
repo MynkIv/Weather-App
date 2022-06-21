@@ -29,6 +29,7 @@ span .degrees {
 
 body.dark h1 {
   padding-top: 20px;
+  margin-bottom: 0px;
 }
 
 body.dark a {
@@ -45,7 +46,7 @@ body.dark #cTemp:hover {
   color: var(--theme-color2);
   font-size: 30px;
   transition-property: all;
-  transition: all 2s;
+  transition: all 2ms;
 }
 
 body.dark .app {
@@ -73,10 +74,10 @@ body.dark .search-icon {
   color: white;
 }
 body.dark .locationIcon {
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   margin-top: -11px;
-  margin-right: -11px;
+  margin-right: -6px;
 }
 body.dark #day-time {
   font-size: 16px;
