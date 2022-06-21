@@ -12,14 +12,32 @@ let days = [
 let day = document.querySelector("#day");
 let time = document.querySelector("#time");
 day.innerHTML = days[currentDate.getDay()];
-if (currentDate.getMinutes() < 10) {
-  time.innerHTML = ` ${currentDate.getHours()}:0${currentDate.getMinutes()}`;
+
+let ampmVariable = ``;
+let currentHour = currentDate.getHours();
+if (currentHour < 12) {
+  ampmVariable = "AM";
 } else {
-  time.innerHTML = ` ${currentDate.getHours()}:${currentDate.getMinutes()}`;
+  ampmVariable = "PM";
 }
-if (currentDate.getHours() === 0) {
-  time.innerHTML = ` 12:${currentDate.getMinutes()}`;
+if (currentHour === 0) {
+  currentHour = 12;
 }
+if (currentHour > 12) {
+  currentHour = currentHour - 12;
+}
+let currentMinutes = currentDate.getMinutes();
+time.innerHTML = ` ${currentHour}:${currentMinutes} ${ampmVariable}`;
+
+//Old Code with inncorrect minutes
+//if (currentDate.getMinutes() < 10) {
+// time.innerHTML = ` ${currentDate.getHours()}:0${currentDate.getMinutes()}`;
+//} else {
+// time.innerHTML = ` ${currentDate.getHours()}:${currentDate.getMinutes()}`;
+//}
+//if (currentDate.getHours() === 0) {
+//time.innerHTML = ` 12:${currentDate.getMinutes()}`;
+//}
 
 //Weekly Forecast
 function formatDay(timestamp) {
@@ -55,18 +73,28 @@ function displayForecast(response) {
 }
 
 //Hourly Forecast
+//The time would not display correctly until i used the timestamp parameter for some reason, for exmaple:
+//it would display "14:00" as the time or it would show "2:00" for eachhour in the row, but the timestamp parameter,
+//and the if else statement fixed this issue.
 function formatHour(timestamp) {
   let amPm = "";
-  let hour = new Date(timestamp * 1000);
-  let curHour = hour.getHours();
+  let dateHour = new Date(timestamp * 1000);
+  let curHour = dateHour.getHours();
   if (curHour < 12) {
     amPm = "AM";
   } else {
     amPm = "PM";
   }
+  if (curHour === 0) {
+    curHour = 12;
+  }
+  if (curHour > 12) {
+    curHour = curHour - 12;
+  }
   let forecastHour = `${curHour}:00 ${amPm}`;
   return forecastHour;
 }
+
 function displayForecastHour(response) {
   let hourForecast = response.data.hourly.slice(1, 5);
   let forecastHourElement = document.querySelector(".hourly-weather");
