@@ -25,10 +25,10 @@ function formatDay(timestamp) {
   return days[day];
 }
 
+//Weekly Forecast
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector(".weekly-weather");
-
   let forecastHTML = `<div class="row mx-auto">`;
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
@@ -47,15 +47,50 @@ function displayForecast(response) {
   `;
     }
   });
-
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
   console.log(forecastHTML);
 }
 
+function formatHour(timestamp) {
+  let hourTime = new Date(timestamp * 1000);
+  let forecastHour = ("0" + hourTime.getHours()).slice(-2);
+  return forecastHour;
+}
+//Hourly Forecast
+function displayForecastHour(response) {
+  let forecastH = response.data.hourly.slice(1, 6);
+  let forecastSecondElement = document.querySelector("#forecastHour");
+
+  let forecastHHTML = `<div class="row">`;
+  forecastH.forEach(function (forecastHour) {
+    forecastHHTML =
+      forecastHHTML +
+      `
+        <div class="col-2">
+          <div class="forecast-hour">${formatHour(forecastHour.dt)}h</div>
+          <img 
+              src="images/gif/${forecastHour.weather[0].icon}.svg"
+              alt="weather-icon" 
+              class="icon"   
+              id="icon"
+          />
+          <span class="forecast-temperatures" id="forecastTemp">${Math.round(
+            forecastHour.temp
+          )}</span><span class="forecast-temperature">º</span>
+        </div>`;
+    hourlyForecastTemp = forecastHour.temp;
+  });
+
+  forecastHHTML = forecastHHTML + `</div>`;
+  forecastSecondElement.innerHTML = forecastHHTML;
+}
+
+//Api Call for Forecasts
 function getForecast(coordinates) {
   let apiURL = ` https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=f5b69fb0f2c8bd35132203c6577c67c4&units=imperial`;
   axios.get(apiURL).then(displayForecast);
+  axios.get(apiURl).then(displayForecastHour);
 }
 
 //Search
@@ -69,12 +104,12 @@ function displayTemperature(response) {
   let maxTemp = document.querySelector("#max-temp");
   let lowTemp = document.querySelector("#low-temp");
   let windElement = document.querySelector("#wind");
+  let humidityElement = document.querySelector(".humidity-perc");
 
   fahrenheitTemp = response.data.main.temp;
 
   windElement.innerHTML = Math.round(response.data.wind.speed);
-  maxTemp.innerHTML = `H:${Math.round(response.data.main.temp_max)}°F  `;
-  lowTemp.innerHTML = `| L:${Math.round(response.data.main.temp_min)}°F`;
+  humidityElement.innerHTML = Math.round(response.data.main.humidity);
   mainDegree.innerHTML = Math.round(fahrenheitTemp);
   h1.innerHTML = response.data.name;
   description.innerHTML = response.data.weather[0].description;
@@ -124,63 +159,3 @@ let fahrenheitLink = document.querySelector("#fTemp");
 fahrenheitLink.addEventListener("click", showFahrenheitTemp);
 
 search("Brooklyn");
-
-//Theme - Button;
-document.querySelector(".theme-button").addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-});
-
-//Original Code//
-//function showWeather(response) {
-// let h1 = document.querySelector("#h1");
-// h1.innerHTML = response.data.name;
-// let mainDegree = document.querySelector("#mainDegree");
-// mainDegree.innerHTML = Math.round(response.data.main.temp);
-// let description = document.querySelector("#weather-description");
-// description.innerHTML = response.data.weather[0].main;
-// //Weekly Weather Icons
-// let weatherIconElement1 = document.querySelector(".svg-1");
-// let weatherIconElement2 = document.querySelector(".svg-2");
-// let weatherIconElement3 = document.querySelector(".svg-3");
-// let weatherIconElement4 = document.querySelector(".svg-4");
-//let weatherIconElement5 = document.querySelector(".svg-5");
-//weatherIconElement1.setAttribute(
-//  "src",
-//  `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-// );
-//}
-
-//Root Function//
-//function search(city) {
-//let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f5b69fb0f2c8bd35132203c6577c67c4&units=imperial
-//`;
-//  axios.get(apiURL).then(showWeather);
-//}
-
-//function searchCity(event) {
-// event.preventDefault();
-// let city = document.querySelector(".input-search").value;
-// showWeather(city.value);
-//}
-
-//Run Function
-//let searchButton = document.querySelector(".search-bar");
-//searchButton.addEventListener("submit", searchCity);
-//search("New York");
-
-//Temperature
-//function celciusTemp() {
-// let mainDegree = document.querySelector("#mainDegree");
-//mainDegree.innerHTML = "5";
-//}
-//let celcius = document.querySelector("#cTemp");
-
-//celcius.addEventListener("click", celciusTemp);
-
-//function fahrenheitTemp() {
-// let mainDegree = document.querySelector("#mainDegree");
-// mainDegree.innerHTML = "41";
-//}
-//let fahrenheit = document.querySelector("#fTemp");
-
-//fahrenheit.addEventListener("click", fahrenheitTemp);

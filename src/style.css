@@ -1,216 +1,125 @@
+:root {
+  --theme-color1: #233565;
+  --theme-color2: #8bd8bd;
+}
+
 body {
+  background-color: white;
   margin: 0 auto;
   padding: 50px;
 }
-h1 {
-  font-family: "Inter", sans-serif;
-  padding-top: 20px;
-}
-p {
-  font-family: "Inter", sans-serif;
-}
-a {
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
+
+#mainDegree {
+  font-size: 70px;
 }
 
-.app {
-  background: rgba(299, 299, 299, 0.4);
-  border-radius: 20px;
-  max-width: 400px;
-  margin-top: 190px;
-  padding-bottom: 30px;
-}
-
-.search-button {
-  background-color: transparent;
-  border: #7c7c7c2b 0.5px solid;
-  border-radius: 20px;
-  padding: 2px;
-  margin-top: 20px;
-  font-family: "Inter", sans-serif;
-}
-.search-icon {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.search-button:hover {
-  background-color: rgba(299, 299, 299, 0.3);
-  cursor: pointer;
-}
-/* .fas {
-  color: white;
-} */
-.icon-1 {
+span .degrees {
   position: relative;
-  right: -7px;
 }
-.row {
-  font-family: "Inter", sans-serif;
-  color: black;
-  text-align: center;
-}
-div .day {
-  padding: 0px;
-}
-.input-search {
-  background: #7c7c7c3b;
-  border: none;
-  border-radius: 20px;
-  font-family: "Inter", sans-serif;
-  color: black;
-}
-.svg {
-  display: flex;
-  justify-content: center;
-}
-.img {
-  margin-top: 0px;
-  margin-right: 0px;
-  margin-left: 0px;
-}
-
 .degrees {
-  font-size: 12px;
+  font-size: 19px;
   position: relative;
-  top: -16px;
+  top: -37px;
 }
 #day-time {
   font-family: "Inter", sans-serif;
 }
-.source-code-link {
-  font-family: "Inter", sans-serif;
-  font-size: 14px;
-  color: pink;
-}
-.source-code {
-  font-family: "Inter", sans-serif;
-  font-size: 14px;
-  padding-top: 5px;
-  display: block;
-}
-.theme-button {
-  position: relative;
-  right: -22px;
-  font-size: 12px;
-  background-color: pink;
-  border: none;
-  color: white;
-  border-radius: 15px;
-  padding: 5px 7px;
-}
-.theme-button:hover {
-  background-color: rgba(299, 299, 299, 0.3);
-  color: black;
-}
-/* Dark Mode */
-body.dark .day {
-  color: white;
-}
 
-body.dark {
-  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/026/139/original/madhuvan-yadav-GRIRnUHkzJY-unsplash.jpg?1643663345");
-  margin: 0 auto;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 50px;
-}
+/* Dark Mode */
+
 body.dark h1 {
-  font-family: "Inter", sans-serif;
   padding-top: 20px;
 }
-body.dark p {
-  font-family: "Inter", sans-serif;
-}
+
 body.dark a {
   text-decoration: none;
 }
-body.dark a:hover {
-  text-decoration: underline;
+
+body.dark #fTemp:hover {
+  color: white;
+  font-size: 30px;
+  transition-property: all;
+  transition: all 2s;
+}
+body.dark #cTemp:hover {
+  color: var(--theme-color2);
+  font-size: 30px;
+  transition-property: all;
+  transition: all 2s;
 }
 
 body.dark .app {
-  background: rgba(2, 7, 9, 0.6);
-  border-radius: 20px;
-  max-width: 400px;
-  margin-top: 190px;
-  padding-bottom: 30px;
+  background-color: var(--theme-color1);
   color: white;
+  width: 585px;
+  margin: 0 auto;
+  margin-top: 50px;
+  border-radius: 10px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: -1px 6px 44px 7px rgba(0, 0, 0, 0.67);
+  text-align: center;
+  padding-bottom: 30px;
 }
 
 body.dark .search-button {
-  background-color: transparent;
-  border: #7c7c7c2b 0.5px solid;
-  border-radius: 20px;
-  padding: 2px;
-  margin-top: 20px;
-  font-family: "Inter", sans-serif;
+  background-color: var(--theme-color2);
+  border-radius: 2px;
+  margin: 10px;
+  border: none;
+  padding: 4px 9px;
 }
 body.dark .search-icon {
-  color: rgba(255, 255, 255, 0.6);
+  color: white;
+}
+body.dark .locationIcon {
+  width: 35px;
+  height: 35px;
+  margin-top: -11px;
+  margin-right: -11px;
+}
+body.dark #day-time {
+  font-size: 16px;
 }
 
-body.dark .search-button:hover {
-  background-color: rgba(299, 299, 299, 0.3);
-  cursor: pointer;
+body.dark #fTemp {
+  color: var(--theme-color2);
 }
-/* .fas {
+body.dark #cTemp {
   color: white;
-} */
-body.dark .icon-1 {
-  position: relative;
-  right: -7px;
 }
-body.dark .row {
-  font-family: "Inter", sans-serif;
-  color: black;
-}
+
 body.dark .input-search {
-  background: #7c7c7c3b;
+  color: var(--theme-color1);
   border: none;
-  border-radius: 20px;
-  font-family: "Inter", sans-serif;
-  color: black;
+  border-radius: 2px;
+  margin-top: 30px;
+  width: 50%;
 }
-.svg-1 {
-  position: relative;
-  right: 24px;
+
+body.dark .hourlyWeather {
+  margin-top: 4%;
+  color: white;
 }
-.svg-2 {
-  position: relative;
-  right: 23px;
+
+body.dark .weatherConditions {
+  margin-top: 5%;
 }
-.svg-3 {
-  position: relative;
-  right: 19px;
+body.dark .humidity,
+body.dark .wind-speed {
+  background-color: var(--theme-color2);
+  border-radius: 5px;
+  padding: 5px;
+  color: white;
 }
-.svg-4 {
-  position: relative;
-  right: 20px;
+body.dark .humidity {
+  margin-right: 10px;
 }
-.svg-5 {
-  position: relative;
-  right: 21px;
-}
-.svg-6 {
-  position: relative;
-  right: 19px;
-}
-.degrees {
-  font-size: 12px;
-  position: relative;
-  top: -16px;
-}
-#day-time {
-  font-family: "Inter", sans-serif;
-}
+
 body.dark .source-code-link {
   font-family: "Inter", sans-serif;
   font-size: 14px;
-  color: pink;
+  color: var(--theme-color1);
 }
 body.dark .source-code {
   font-family: "Inter", sans-serif;
@@ -223,7 +132,7 @@ body.dark .theme-button {
   position: relative;
   right: -20px;
   font-size: 12px;
-  background-color: pink;
+  background-color: var(--theme-color2);
   border: none;
   color: white;
   border-radius: 15px;
@@ -241,41 +150,16 @@ body.dark .theme-button:hover {
 body.dark .weekly-weather {
   color: white;
 }
-.theme-icons {
-  --rotation: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: pink;
-  transform: rotate(var(--rotation));
-}
 
-body.dark .theme-icons {
+body.dark .app-bottom {
+  background-color: var(--theme-color1);
+  color: white;
+  width: 585px;
+  margin: 0 auto;
+  margin-top: 0.5%;
+  padding: 25px 45px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: -1px 6px 44px 7px rgba(0, 0, 0, 0.67);
   text-align: center;
-  color: pink;
-}
-.sun,
-.moon {
-  --transition-delay: 1s;
-  position: absolute;
-  transition: opacity var(--transition-delay);
-}
-.moon {
-  bottom: -767px;
-  opacity: 0;
-}
-.sun {
-  top: 5%;
-  opacity: 1;
-}
-
-body.dark .moon {
-  opacity: 1;
-}
-body.dark .sun {
-  opacity: 0;
-}
-
-.wind-speed {
-  font-family: "Inter", sans-serif;
 }
